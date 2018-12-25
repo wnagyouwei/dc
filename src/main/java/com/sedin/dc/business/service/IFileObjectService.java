@@ -16,7 +16,7 @@ import com.sedin.dc.business.entity.DcFile;
  * @version 1.0
  * @date 2018-11-27
  */
-public interface IFileObjectService extends IBaseService<File>{
+public interface IFileObjectService extends IBaseService<DcFile>{
 
     /**
      * 取得文件信息，存入hadoop存储

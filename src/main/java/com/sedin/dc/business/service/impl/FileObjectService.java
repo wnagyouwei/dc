@@ -27,12 +27,12 @@ import com.sedin.dc.business.service.IFileObjectService;
  * @author zqy
  * @date 2018-11-27
  */
-public class FileObjectService extends BaseService<File> implements IFileObjectService
+public class FileObjectService extends BaseService<DcFile> implements IFileObjectService
 {
 
 	public FileObjectService(Principal principal) throws CommonException
 	{
-		super(principal,File.class);
+		super(principal,DcFile.class);
 	}
 
 	/**
