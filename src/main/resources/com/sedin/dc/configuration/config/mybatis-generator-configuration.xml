@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<properties resource="com/sedin/dc/configuration/properties/jdbc.properties" />
+	<context id="mysql">
+
+		<!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表； 一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖 -->
+		<property name="autoDelimitKeywords" value="false" />
+		<!-- 生成的Java文件的编码 -->
+
+		<property name="javaFileEncoding" value="UTF-8" />
+		<!-- RowBounds pagination -->
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- jdbc连接 -->
+		<jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}" />
+
+		<javaModelGenerator targetPackage="com.sedin.dc.business.entity" targetProject="src/main/java">
+			<!-- 设置一个根对象， 如果设置了这个根对象，那么生成的keyClass或者recordClass会继承这个类；在Table的rootClass属性中可以覆盖该选项 
+				注意：如果在key class或者record class中有root class相同的属性，MBG就不会重新生成这些属性了，包括： 1，属性名相同，类型相同，有相同的getter/setter方法； -->
+			<property name="rootClass" value="com.dzy.support.platform.persistence.common.PersistenceBean" />
+			<!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<sqlMapGenerator targetPackage="com.sedin.dc.configuration.mapper" targetProject="src/main/resources">
+
+		</sqlMapGenerator>
+		<table tableName="dc_dictionary_type" domainObjectName="DictionaryType">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_dictionary_value" domainObjectName="DictionaryValue">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_directory" domainObjectName="DcDirectory">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_file" domainObjectName="DcFile">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_file_history" domainObjectName="DcFileHistory">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_object" domainObjectName="DcObject">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_object_auth" domainObjectName="DcObjectAuth">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_object_role" domainObjectName="DcObjectRole">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_operation_log" domainObjectName="DcOperationLog">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_recovery_station" domainObjectName="DcRecoveryStation">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_role_auth" domainObjectName="DcRoleAuth">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_role_user" domainObjectName="DcRoleUser">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_user" domainObjectName="DcUser">
+			<property name="modelOnly" value="true"/>
+		</table>
+		<table tableName="dc_zone" domainObjectName="DcZone">
+			<property name="modelOnly" value="true"/>
+		</table>
+	</context>
+</generatorConfiguration>

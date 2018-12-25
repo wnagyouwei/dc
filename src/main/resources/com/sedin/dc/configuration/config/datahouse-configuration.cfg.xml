@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<datahouse-type>hadoop</datahouse-type>
+	<datahouse-manager-mappings>
+		<datahouse-manager type="hadoop" class="com.dzy.support.platform.datahouse.util.HdDataHouseManager" />
+	</datahouse-manager-mappings>
+	<datahouse-setting>
+		<schema>hdfs://</schema>
+		<server>172.30.10.78</server>
+		<port>9000</port>
+		<root>/root</root>
+	</datahouse-setting>
+	<web>
+		<schema>http://</schema>
+		<server>172.23.4.52</server>
+		<port>80</port>
+		<contextPath>dc</contextPath>
+		<fileDirectory>files</fileDirectory>
+	</web>
+</configuration>

@@ -1,0 +1,41 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /dc
+
+spring:
+  application:
+    name: dc-${random.int(0,1000)}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 200MB
+  profiles:
+      active: dev
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 20   #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除(默认90秒)
+    lease-renewal-interval-in-seconds: 5       #服务刷新时间配置，每隔这个时间会主动心跳一次(默认30秒)
+  client:
+    registry-fetch-interval-seconds: 10  #重新刷新服务地址的时间
+    service-url:
+      defaultZone: http://172.23.4.11:8762/eureka
+
+logging:
+  config: classpath:com/sedin/dc/configuration/config/log-configuration.cfg.xml
+
+# 自定义配置（资源文件集合）
+config-resouces:
+   mapping:
+    - class: com.dzy.support.platform.service.util.ServiceFactory
+      resource: /com/sedin/dc/configuration/config/service-configuration.cfg.xml
+    - class: com.dzy.support.platform.persistence.util.SessionFactory
+      resource: /com/sedin/dc/configuration/config/persistence-configuration.cfg.xml
+    - class: com.dzy.support.platform.datahouse.util.DataHouseFactory
+      resource: /com/sedin/dc/configuration/config/datahouse-configuration.cfg.xml
+    - class: com.dzy.support.platform.common.util.LogHelper
+      resource: /com/sedin/dc/configuration/config/log-configuration.cfg.xml

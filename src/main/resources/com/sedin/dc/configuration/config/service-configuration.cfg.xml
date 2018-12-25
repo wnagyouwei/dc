@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<services>
+		 <service interface="com.sedin.dc.business.service.IUserService"
+			     implement="com.sedin.dc.business.service.impl.UserService" />
+		 <service interface="com.sedin.dc.business.service.IFileObjectService"
+				 implement="com.sedin.dc.business.service.impl.FileObjectService" />
+	</services>
+</configuration>

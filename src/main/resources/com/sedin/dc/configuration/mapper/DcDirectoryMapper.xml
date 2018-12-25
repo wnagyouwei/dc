@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sedin.dc.configuration.mapper.DcDirectoryMapper">
+  <resultMap id="BaseResultMap" type="com.sedin.dc.business.entity.DcDirectory">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="FD_TYPE" jdbcType="VARCHAR" property="fdType" />
+    <result column="FD_NAME" jdbcType="VARCHAR" property="fdName" />
+    <result column="FD_PATH" jdbcType="VARCHAR" property="fdPath" />
+    <result column="FD_LEVEL" jdbcType="DECIMAL" property="fdLevel" />
+    <result column="FD_MAX_SIZE" jdbcType="VARCHAR" property="fdMaxSize" />
+    <result column="DEL_FLAG" jdbcType="BIT" property="delFlag" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+</mapper>

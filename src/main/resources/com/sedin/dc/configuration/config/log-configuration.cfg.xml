@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--设置log4j2的自身log级别为warn -->
+<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置， 当设置成trace时，你会看到log4j2内部各种详细输出 -->
+<!--monitorInterval：Log4j能够自动检测修改配置 文件和重新配置本身，设置间隔秒数 -->
+<configuration status="INFO" monitorInterval="30">
+	<properties>
+		<property name="LOG_HOME">D:/log</property>
+		<property name="LOG_FILE_NAME">log</property>
+		<property name="SERVER_FILE_NAME">server</property>
+		<property name="FATAL_FILE_NAME">fatal</property>
+		<property name="ERROR_FILE_NAME">error</property>
+		<property name="PERSISTENCE_FILE_NAME">persistence</property>
+	</properties>
+	<!--先定义所有的appender -->
+	<appenders>
+		<!--这个输出控制台的配置 -->
+		<console name="Console" target="SYSTEM_OUT">
+			<!--输出日志的格式 -->
+			<PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+		</console>
+		<!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用 -->
+		<File name="log" fileName="${LOG_HOME}/${LOG_FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log"
+			append="false">
+			<PatternLayout
+				pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+		</File>
+		
+		<RollingFile name="RollingFileSystem"
+			fileName="${LOG_HOME}/${SERVER_FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<!-- 只显示INFO级别的信息 -->
+				<ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL" />
+				<ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+			</Filters>
+			<PatternLayout
+				pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		
+		<RollingFile name="RollingFileFatal"
+			fileName="${LOG_HOME}/${FATAL_FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<!-- 只显示FATAL级别的信息 -->
+				<ThresholdFilter level="OFF" onMatch="DENY" onMismatch="NEUTRAL" />
+				<ThresholdFilter level="FATAL" onMatch="ACCEPT" onMismatch="DENY" />
+			</Filters>
+			<PatternLayout
+				pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+
+		<RollingFile name="RollingFileError"
+			fileName="${LOG_HOME}/${ERROR_FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<!-- 只显示ERROR级别的信息 -->
+				<ThresholdFilter level="FATAL" onMatch="DENY" onMismatch="NEUTRAL" />
+				<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+			</Filters>
+			<PatternLayout
+				pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		
+		<RollingFile name="RollingFilePersistence"
+			fileName="${LOG_HOME}/${PERSISTENCE_FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout
+				pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+	</appenders>
+	<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+	<loggers>
+	
+		<root level="DEBUG">
+			<appender-ref ref="Console" />
+			<appender-ref ref="log" />
+		</root>
+		
+		<logger name="org.springframework" level="OFF" />
+		
+		<logger name="com.dzy.support.platform.common.util.LogHelper" additivity="false">
+		
+			<appender-ref ref="Console" />
+			
+			<appender-ref ref="RollingFileSystem" />
+			
+			<appender-ref ref="RollingFileFatal" />
+			
+			<appender-ref ref="RollingFileError" />
+			
+			<appender-ref ref="log" />
+			
+		</logger>
+		
+		<logger name="com.dzy.support.platform.persistence.sqlmapping" level="DEBUG" additivity="false">
+			
+			<appender-ref ref="Console" />
+			
+			<appender-ref ref="RollingFilePersistence" />
+			
+			<appender-ref ref="log" />
+			
+		</logger>
+		
+	</loggers>
+
+</configuration>

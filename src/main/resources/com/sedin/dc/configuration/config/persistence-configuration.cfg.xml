@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<persistence-type>database</persistence-type>
+	<server-config-type>mysql</server-config-type>
+	<server-type-mapping>
+		<type name="mysql" server-type="mysql" config="/com/sedin/dc/configuration/config/mybatis-configuration.cfg.xml" />
+	</server-type-mapping>
+	<session-manager-mapping>
+		<session-manager type="database" class="com.dzy.support.platform.persistence.util.DBSessionManager" />
+	</session-manager-mapping>
+</configuration>
