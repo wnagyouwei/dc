@@ -51,8 +51,21 @@
     
 	<!-- 配置映射文件 -->
 	<mappers>
-		<mapper resource="com/sedin/dc/configuration/mapper/UserMapper.xml" />
-		<mapper resource="com/sedin/dc/configuration/mapper/BaseMapper.xml" />
-		<mapper resource="com/sedin/dc/configuration/mapper/FileObjectMapper.xml" />
+		<!-- 基础mapper -->
+		<mapper resource="com/dzy/support/platform/persistence/sqlmapping/BaseMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcDirectoryMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcFileHistoryMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcFileMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcObjectAuthMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcObjectMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcObjectRoleMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcOperationLogMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcRecoveryStationMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcRoleAuthMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcRoleUserMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcUserMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DcZoneMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DictionaryTypeMapper.xml" />
+		<mapper resource="com/sedin/dc/configuration/mapper/DictionaryValueMapper.xml" />
 	</mappers>
 </configuration>
