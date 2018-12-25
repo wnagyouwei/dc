@@ -1,21 +1,33 @@
 package com.sedin.dc.business.entity;
 
-import com.dzy.support.platform.persistence.common.PersistenceBean;
 import java.io.Serializable;
 
-public class DcDirectory extends PersistenceBean implements Serializable {
-    private String id;
+import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
 
+@TableName(name="dc_directory")
+public class DcDirectory extends PersistenceBean implements Serializable {
+    
+	@FieldName(name="ID")
+	private String id;
+
+	@FieldName(name="FD_TYPE")
     private String fdType;
 
+	@FieldName(name="FD_NAME")
     private String fdName;
 
+	@FieldName(name="FD_PATH")
     private String fdPath;
 
+	@FieldName(name="FD_LEVEL")
     private Long fdLevel;
 
+	@FieldName(name="FD_MAX_SIZE")
     private String fdMaxSize;
 
+	@FieldName(name="DEL_FLAG")
     private Boolean delFlag;
 
     private static final long serialVersionUID = 1L;

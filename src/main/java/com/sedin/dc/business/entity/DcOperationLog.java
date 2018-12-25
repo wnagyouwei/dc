@@ -1,17 +1,27 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_operation_log")
 public class DcOperationLog extends PersistenceBean implements Serializable {
-    private String id;
+    
+	@FieldName(name="ID")
+	private String id;
 
+	@FieldName(name="OP_TYPE")
     private String opType;
 
+	@FieldName(name="OP_RESULT")
     private String opResult;
 
+	@FieldName(name="OBJECT_ID")
     private String objectId;
 
+	@FieldName(name="OP_USER_ID")
     private String opUserId;
 
     private static final long serialVersionUID = 1L;

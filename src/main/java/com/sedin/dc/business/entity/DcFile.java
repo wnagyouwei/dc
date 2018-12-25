@@ -1,25 +1,39 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_file")
 public class DcFile extends PersistenceBean implements Serializable {
+	
+	@FieldName(name="ID")
     private String id;
 
+	@FieldName(name="FILE_NAME")
     private String fileName;
 
+	@FieldName(name="FILE_TYPE")
     private String fileType;
 
+	@FieldName(name="FILE_SIZE")
     private String fileSize;
 
+	@FieldName(name="FS_PATH")
     private String fsPath;
 
+	@FieldName(name="HD_PATH")
     private String hdPath;
 
+	@FieldName(name="CHECKSUM")
     private String checksum;
 
+	@FieldName(name="REMARKS")
     private String remarks;
 
+	@FieldName(name="DEL_FLAG")
     private Boolean delFlag;
 
     private static final long serialVersionUID = 1L;

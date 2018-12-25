@@ -1,18 +1,28 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@TableName(name="dc_operation_log")
 public class DcRecoveryStation extends PersistenceBean implements Serializable {
-    private String id;
+    
+	@FieldName(name="ID")
+	private String id;
 
+	@FieldName(name="OBJECT_ID")
     private String objectId;
 
+	@FieldName(name="DELETE_USER_ID")
     private String deleteUserId;
 
+	@FieldName(name="DELETE_TIME")
     private Date deleteTime;
 
+	@FieldName(name="DELETE_REASON")
     private String deleteReason;
 
     private static final long serialVersionUID = 1L;

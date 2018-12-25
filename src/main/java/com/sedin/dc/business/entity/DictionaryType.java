@@ -1,15 +1,24 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_dictionary_type")
 public class DictionaryType extends PersistenceBean implements Serializable {
-    private String id;
+    
+	@FieldName(name="ID")
+	private String id;
 
+	@FieldName(name="TYPE")
     private String type;
 
+	@FieldName(name="DESCRIPTION")
     private String description;
 
+	@FieldName(name="DEL_FLAG")
     private Byte delFlag;
 
     private static final long serialVersionUID = 1L;

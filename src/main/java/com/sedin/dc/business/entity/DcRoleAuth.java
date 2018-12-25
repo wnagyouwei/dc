@@ -1,14 +1,22 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_role_auth")
 public class DcRoleAuth extends PersistenceBean implements Serializable {
-    private String id;
+    
+	@FieldName(name="ID")
+	private String id;
 
+	@FieldName(name="ROLE_ID")
     private String roleId;
 
-    private String oAuthorityId;
+	@FieldName(name="AUTH_ID")
+    private String authId;
 
     private static final long serialVersionUID = 1L;
 
@@ -28,11 +36,11 @@ public class DcRoleAuth extends PersistenceBean implements Serializable {
         this.roleId = roleId == null ? null : roleId.trim();
     }
 
-    public String getoAuthorityId() {
-        return oAuthorityId;
-    }
+	public String getAuthId() {
+		return authId;
+	}
 
-    public void setoAuthorityId(String oAuthorityId) {
-        this.oAuthorityId = oAuthorityId == null ? null : oAuthorityId.trim();
-    }
+	public void setAuthId(String authId) {
+		this.authId = authId;
+	}
 }

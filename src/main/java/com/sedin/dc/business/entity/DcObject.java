@@ -1,25 +1,39 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_object")
 public class DcObject extends PersistenceBean implements Serializable {
+	
+	@FieldName(name="ID")
     private String id;
 
+	@FieldName(name="TYPE")
     private String type;
 
+	@FieldName(name="OBJECT_ID")
     private String objectId;
 
+	@FieldName(name="PID")
     private String pid;
 
+	@FieldName(name="KEYWORD")
     private String keyword;
 
+	@FieldName(name="STATUS")
     private String status;
 
+	@FieldName(name="PROP_DATAS")
     private String propDatas;
 
+	@FieldName(name="VERSION")
     private Integer version;
 
+	@FieldName(name="DEL_FLAG")
     private Boolean delFlag;
 
     private static final long serialVersionUID = 1L;

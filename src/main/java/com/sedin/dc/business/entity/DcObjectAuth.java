@@ -1,14 +1,22 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_object_auth")
 public class DcObjectAuth extends PersistenceBean implements Serializable {
+	
+	@FieldName(name="ID")
     private String id;
 
+	@FieldName(name="OBJECT_ID")
     private String objectId;
 
-    private String oAuthorityId;
+	@FieldName(name="AUTH_ID")
+    private String authId;
 
     private static final long serialVersionUID = 1L;
 
@@ -28,11 +36,11 @@ public class DcObjectAuth extends PersistenceBean implements Serializable {
         this.objectId = objectId == null ? null : objectId.trim();
     }
 
-    public String getoAuthorityId() {
-        return oAuthorityId;
-    }
+	public String getAuthId() {
+		return authId;
+	}
 
-    public void setoAuthorityId(String oAuthorityId) {
-        this.oAuthorityId = oAuthorityId == null ? null : oAuthorityId.trim();
-    }
+	public void setAuthId(String authId) {
+		this.authId = authId;
+	}
 }

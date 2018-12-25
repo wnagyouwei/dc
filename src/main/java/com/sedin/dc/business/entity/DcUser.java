@@ -1,11 +1,18 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_user")
 public class DcUser extends PersistenceBean implements Serializable {
-    private String id;
+   
+	@FieldName(name="ID")
+	private String id;
 
+	@FieldName(name="USER_NAME")
     private String userName;
 
     private static final long serialVersionUID = 1L;

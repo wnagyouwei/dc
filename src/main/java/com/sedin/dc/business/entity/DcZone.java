@@ -1,19 +1,30 @@
 package com.sedin.dc.business.entity;
 
 import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
+
 import java.io.Serializable;
 
+@TableName(name="dc_zone")
 public class DcZone extends PersistenceBean implements Serializable {
+	
+	@FieldName(name="ID")
     private String id;
 
+	@FieldName(name="ZONG_CODE")
     private String zongCode;
 
+	@FieldName(name="ZONG_NAME")
     private String zongName;
 
+	@FieldName(name="ZONG_MAX_SIZE")
     private String zongMaxSize;
 
+	@FieldName(name="ZONE_DESCRIPT")
     private String zoneDescript;
 
+	@FieldName(name="DEL_FLAG")
     private Boolean delFlag;
 
     private static final long serialVersionUID = 1L;

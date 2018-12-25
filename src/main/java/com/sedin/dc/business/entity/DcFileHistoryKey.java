@@ -1,11 +1,18 @@
 package com.sedin.dc.business.entity;
 
-import com.dzy.support.platform.persistence.common.PersistenceBean;
 import java.io.Serializable;
 
-public class DcFileHistoryKey extends PersistenceBean implements Serializable {
-    private String id;
+import com.dzy.support.platform.persistence.common.PersistenceBean;
+import com.dzy.support.platform.persistence.provider.FieldName;
+import com.dzy.support.platform.persistence.provider.TableName;
 
+@TableName(name="dc_file_history")
+public class DcFileHistoryKey extends PersistenceBean implements Serializable {
+    
+	@FieldName(name="ID")
+	private String id;
+
+	@FieldName(name="VERSION")
     private Integer version;
 
     private static final long serialVersionUID = 1L;
