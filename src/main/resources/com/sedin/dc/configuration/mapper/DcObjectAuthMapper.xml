@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.sedin.dc.business.entity.DcObjectAuth">
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="OBJECT_ID" jdbcType="VARCHAR" property="objectId" />
-    <result column="O_AUTHORITY_ID" jdbcType="VARCHAR" property="oAuthorityId" />
+    <result column="AUTH_ID" jdbcType="VARCHAR" property="authId" />
     <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
     <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
     <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
